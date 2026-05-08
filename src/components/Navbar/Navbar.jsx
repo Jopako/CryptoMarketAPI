@@ -1,5 +1,5 @@
 import "./Navbar.css";
-import Crypt from "../../assets/logo.png";
+import Crypt from "../../assets/a.png";
 import { useContext } from "react";
 import { CoinContext } from "../../context/CoinContextInstance";
 import { Link } from "react-router-dom";
@@ -29,22 +29,22 @@ export const Navbar = () => {
 
   return (
     <nav className="navbar">
-      <Link to={'/'}>
-      <img className="logo"  src={Crypt} alt="logo" />
+      <Link className="pop-inline" to={'/'}>
+      <img className="logo" src={Crypt} alt="logo" />
       </Link>
       <ul className="list">
-              <Link to={'/'}>
+              <Link className="pop-inline" to={'/'}>
 <li>Home</li></Link>
-        <li>Blog</li>
-        <li>Why us</li>
+        <li className="pop-inline">Blog</li>
+        <li className="pop-inline">Why us</li>
       </ul>
       <div className="nav-right">
-        <select style={{cursor: "pointer"}} onChange={currencyHandler}>
+        <select className="pop-inline" style={{cursor: "pointer"}} onChange={currencyHandler}>
           <option value="usd">USD</option>
           <option value="eur">EUR</option>
           <option value="brl">BRL</option>
         </select>
-        <button className="sign-up">Sing up</button>
+        <button className="sign-up pop">Sing up</button>
       </div>
     </nav>
   );

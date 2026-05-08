@@ -14,6 +14,10 @@
 .hero h1 {
   font-size: max(4vw, 36px);
 }
+.hero-title-line {
+  white-space: nowrap;
+  display: inline-block;
+}
 .hero p {
   width: 75%;
   color: var(--text-muted);
@@ -68,33 +72,7 @@
   border-radius: 15px;
 }
 
-/* "Pop forward" effect only for the coin rows (Links render as <a>) */
-.crypto-table a.table-layout {
-  position: relative;
-  transition:
-    transform 160ms ease,
-    box-shadow 160ms ease,
-    background-color 160ms ease;
-  will-change: transform;
-}
-.crypto-table a.table-layout:hover,
-.crypto-table a.table-layout:focus-visible {
-  z-index: 1;
-  transform: translateY(-2px) scale(1.01);
-  background: var(--surface-2);
-  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.35);
-  outline: 2px solid rgba(118, 133, 188, 0.45);
-  outline-offset: -2px;
-}
-@media (prefers-reduced-motion: reduce) {
-  .crypto-table a.table-layout {
-    transition: none;
-  }
-  .crypto-table a.table-layout:hover,
-  .crypto-table a.table-layout:focus-visible {
-    transform: none;
-  }
-}
+/* "Pop forward" effect now uses the global `.pop` utility (src/index.css) */
 
 .table-layout {
   display: grid;

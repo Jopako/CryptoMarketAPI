@@ -40,12 +40,16 @@ const Home = () => {
   return (
     <div className="home">
       <div className="hero">
-        <h1>Largest<br/>Crypto Marketplace</h1>
+        <h1>
+          Largest
+          <br />
+          <span className="hero-title-line">Crypto Market</span>
+        </h1>
         <p>
           Welcome to the biggest crypto marketplace. Sign Up!
           
         </p>
-        <form onSubmit={searchHandler}>
+        <form className="pop pop-surface" onSubmit={searchHandler}>
 
 
           <input onChange={inputHandler} list="coinlist"
@@ -55,7 +59,7 @@ const Home = () => {
             {allCoin.map((item,index)=>(<option key={index} value={item.name}/>))}
           </datalist>
 
-          <button type="submit">Search</button>
+          <button className="pop-inline" type="submit">Search</button>
         </form>
       </div>
       <div className="crypto-table">
@@ -69,7 +73,7 @@ const Home = () => {
         {
           coins.slice(0,15).map((item,index)=>(
 
-            <Link to={`/coin/${item.id}`} className="table-layout" key={index}>
+            <Link to={`/coin/${item.id}`} className="table-layout pop pop-surface" key={index}>
               <p>{item.market_cap_rank}</p>
               <div>
                 <img src={item.image}alt="" />

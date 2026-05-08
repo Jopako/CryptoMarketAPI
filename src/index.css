@@ -36,12 +36,12 @@ CORES
   #222944 70%,
   #435289 100%
 );
-*/
 
-background:
+
+/*background:
   radial-gradient(circle at top, #5467ab55, transparent 40%),
   radial-gradient(circle at bottom right, #7685bc33, transparent 35%),
-  linear-gradient(160deg, #0c0e18, #111522, #222944);
+  linear-gradient(160deg, #0c0e18, #111522, #222944);*/
 
 
 
@@ -66,7 +66,6 @@ a {
 
 body {
   min-height: 100vh;
-  background: var(--bg);
   color: var(--text);
   font-family:
     system-ui,
@@ -74,8 +73,21 @@ body {
     Segoe UI,
     Roboto,
     sans-serif;
+  position: relative;
+  isolation: isolate;
+  overflow-x: hidden;
+  background: var(--color-twilight-indigo-950);
+  color: white;
+}
 
-     /* background:
+/* Animated background gradient */
+body::before {
+  content: "";
+  position: fixed;
+  inset: -30%;
+  z-index: -1;
+  pointer-events: none;
+  background:
     radial-gradient(
       circle at top left,
       var(--color-twilight-indigo-500),
@@ -94,9 +106,26 @@ body {
       var(--color-twilight-indigo-700) 75%,
       var(--color-twilight-indigo-600) 100%
     );
+  background-size: 180% 180%;
+  background-position: 0% 0%;
+  transform: translate3d(0, 0, 0) scale(1.05);
+  will-change: transform, background-position;
+  animation: bg-drift 18s ease-in-out infinite alternate;
+}
 
-  background-attachment: fixed;
-  color: white;*/
+@keyframes bg-drift {
+  0% {
+    transform: translate3d(-4%, -3%, 0) scale(1.05) rotate(0deg);
+    background-position: 0% 10%;
+  }
+  50% {
+    transform: translate3d(3%, 4%, 0) scale(1.1) rotate(1.5deg);
+    background-position: 60% 30%;
+  }
+  100% {
+    transform: translate3d(4%, -2%, 0) scale(1.08) rotate(-1deg);
+    background-position: 100% 0%;
+  }
 }
 
 #root {
@@ -105,4 +134,54 @@ body {
 
 .app {
   min-height: 100vh;
+}
+
+/* Reusable "pop forward" hover/focus effect */
+.pop {
+  position: relative;
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease,
+    filter 160ms ease;
+  will-change: transform;
+}
+.pop:hover,
+.pop:focus-visible {
+  z-index: 1;
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.35);
+  outline: 2px solid rgba(118, 133, 188, 0.45);
+  outline-offset: -2px;
+}
+.pop-surface:hover,
+.pop-surface:focus-visible {
+  background: var(--surface-2);
+}
+
+/* Lighter variant for inline-ish items (navbar links) */
+.pop-inline {
+  transition: transform 160ms ease, filter 160ms ease;
+  will-change: transform;
+}
+.pop-inline:hover,
+.pop-inline:focus-visible {
+  transform: translateY(-1px) scale(1.03);
+  filter: brightness(1.1);
+  outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::before {
+    animation: none;
+  }
+  .pop,
+  .pop-inline {
+    transition: none;
+  }
+  .pop:hover,
+  .pop:focus-visible,
+  .pop-inline:hover,
+  .pop-inline:focus-visible {
+    transform: none;
+  }
 }

@@ -135,28 +135,28 @@ const Coin = () => {
         </p>
       </div>
 
-      <div className="coin-chart">
+      <div className="coin-chart pop pop-surface">
         <LineChart historicalData={historicalData} />
       </div>
 
       <div className="coin-info">
-        <ul>
+        <ul className="pop pop-surface">
           <li>Crypto Market Rank</li>
           <li>{coinData?.market_cap_rank ?? "-"}</li>
         </ul>
-        <ul>
+        <ul className="pop pop-surface">
           <li>Market Cap</li>
           <li>{formatCurrencyNumber(marketCap)}</li>
         </ul>
-        <ul>
+        <ul className="pop pop-surface">
           <li>24h High</li>
           <li>{formatCurrencyNumber(high24h)}</li>
         </ul>
-        <ul>
+        <ul className="pop pop-surface">
           <li>24h Low</li>
           <li>{formatCurrencyNumber(low24h)}</li>
         </ul>
-<ul>
+<ul className="pop pop-surface">
           <li>Price</li>
 
       {typeof price === "number" ? (
