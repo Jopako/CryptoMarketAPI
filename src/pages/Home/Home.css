@@ -1,0 +1,156 @@
+.home {
+  padding: 0px 10px;
+  padding-bottom: 100px;
+}
+.hero {
+  max-width: 600px;
+  margin: 80px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 30px;
+}
+.hero h1 {
+  font-size: max(4vw, 36px);
+}
+.hero p {
+  width: 75%;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+.hero form {
+  padding: 8px;
+  width: 80%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  font-size: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+.hero input {
+  flex: 1;
+  font-size: 16px;
+  outline: none;
+  border: none;
+  padding-left: 10px;
+  background: transparent;
+  color: var(--text);
+}
+.hero input::placeholder {
+  color: var(--text-muted);
+}
+.hero button {
+  border: none;
+  background: var(--accent);
+  color: var(--accent-text);
+  font-size: 16px;
+  padding: 10px 30px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.hero button:hover {
+  filter: brightness(1.05);
+}
+.hero button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.crypto-table {
+  max-width: 800px;
+  margin: auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 15px;
+}
+
+/* "Pop forward" effect only for the coin rows (Links render as <a>) */
+.crypto-table a.table-layout {
+  position: relative;
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease,
+    background-color 160ms ease;
+  will-change: transform;
+}
+.crypto-table a.table-layout:hover,
+.crypto-table a.table-layout:focus-visible {
+  z-index: 1;
+  transform: translateY(-2px) scale(1.01);
+  background: var(--surface-2);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.35);
+  outline: 2px solid rgba(118, 133, 188, 0.45);
+  outline-offset: -2px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .crypto-table a.table-layout {
+    transition: none;
+  }
+  .crypto-table a.table-layout:hover,
+  .crypto-table a.table-layout:focus-visible {
+    transform: none;
+  }
+}
+
+.table-layout {
+  display: grid;
+  grid-template-columns: 0.5fr 2fr 1fr 1fr 1.5fr;
+  padding: 15px 20px;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+}
+.table-layout p {
+  color: var(--text-muted);
+  font-weight: 600;
+}
+.market-cap {
+  text-align: right;
+}
+.table-layout:last-child{
+  border:none;
+}
+.table-layout div{
+display: flex;
+align-items: center;
+gap: 10px;
+}
+.table-layout div img{
+
+  width: 55px;
+}
+.table-layout .green{
+  color: #00d515;
+  text-align: center;
+}
+.table-layout .red{
+  color: #ff4646;
+  text-align: center;
+}
+
+@media(max-width: 768px)
+{
+  .table-layout{
+      grid-template-columns: 0.5fr 3fr 1fr 1fr;
+
+  }
+  .market-cap{
+    display: none;
+  }
+}
+
+@media(max-width: 500px)
+{
+  .table-layout div img{
+    width: 25px;
+  }
+  .table-layout{
+    font-size: 13px;
+  }
+  .hero form input{
+    width: 100px;
+  }
+}
