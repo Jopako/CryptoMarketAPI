@@ -1,6 +1,17 @@
-# GeckoApiTest — Consumo da CoinGecko API
 
-Projeto em **React + Vite** que consome a **CoinGecko API** para listar criptomoedas, exibir detalhes de uma moeda e um gráfico com dados históricos.
+<div align="center">
+
+  <h1> CryptoMarket — Consumo da CoinGecko API</h1>
+  <br/>
+  <img width="180" height="180" alt="apple-touch-icon" src="https://github.com/user-attachments/assets/e1cda2c6-e564-4cfe-9b21-a2de7291c881" />
+  <br/>
+
+  
+
+  <p>Projeto em <mark>React + Vite</mark> que consome a <mark>CoinGecko API</mark> para listar criptomoedas, exibir detalhes de uma moeda e um gráfico com dados históricos.
+</p>
+</div>
+
 
 ---
 
