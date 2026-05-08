@@ -78,6 +78,9 @@ curl -s "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=ma
 - A URL base e a API key são configuráveis por `.env.local`:
   - `VITE_COINGECKO_BASE_URL` (padrão `/coingecko/api/v3`, usando proxy do Vite)
   - `VITE_COINGECKO_API_KEY` (Demo ou Pro; o código escolhe o header automaticamente)
+ 
+<img width="1680" height="864" alt="Captura de tela de 2026-05-08 14-05-50" src="https://github.com/user-attachments/assets/1cb39a82-1535-401e-ac4f-0cbf4aa9415e" />
+
 
 ---
 
@@ -97,7 +100,7 @@ Fornecer **dados de mercado e metadados** de criptoativos (preço atual, variaç
 - `GET /coins/{id}/market_chart`
 
 ### Autenticação
-Sim. A CoinGecko trabalha com **API Key** (varia por plano).
+A CoinGecko trabalha com **API Key** (varia por plano).
 
 **Tipos**
 - Demo (Public/Demo): API Key em `x-cg-demo-api-key` (header) ou `x_cg_demo_api_key` (query)
@@ -135,6 +138,8 @@ Exemplo de campos retornados por `GET /coins/markets` (cada item do array):
 ```
 
 No app, esses campos são usados na tabela da Home (`current_price`, `market_cap`, `market_cap_rank`, `image`, `name`, `symbol`, etc.).
+Também na descrição das moedas.<img width="883" height="830" alt="Captura de tela de 2026-05-08 14-04-52" src="https://github.com/user-attachments/assets/df649b0c-9685-4258-8b66-0b44a4c7d3cf" />
+
 
 ---
 
