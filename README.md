@@ -10,7 +10,12 @@ Projeto em **React + Vite** que consome a **CoinGecko API** para listar criptomo
 
 **Motivo da escolha**
 - É uma API pública focada em **dados de mercado de criptomoedas** (preços, market cap, rankings, histórico, etc.).
-- 
+---
+
+## Techs utilizadas
+
+![My Skills](https://skillicons.dev/icons?i=react,vite,js,css,eslint&theme=dark)
+
 ---
 
 ## 2) Consumo da API (requisições reais)
@@ -37,7 +42,6 @@ Parâmetros usados (exemplo):
 - `order=market_cap_desc`
 - `per_page=10`
 - `page=1`
-- `sparkline=false`
 
 ```bash
 curl -s "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=false" \
@@ -95,7 +99,7 @@ Sim. A CoinGecko trabalha com **API Key** (varia por plano).
 > Neste projeto, a chave é opcional no código (para facilitar testes). Se você tiver uma chave, coloque em `.env.local` (ver seção “Como executar”).
 
 ### Versionamento
-Sim. O versionamento é tratado no **path** via `/api/v3` (ex.: `https://api.coingecko.com/api/v3/...`).
+O versionamento é tratado no **path** via `/api/v3` (ex.: `https://api.coingecko.com/api/v3/...`).
 
 ### HATEOAS
 Não é uma API HATEOAS: as respostas típicas são objetos/arrays JSON com dados (sem “links” de navegação/hipermídia no payload como parte do padrão de resposta).
